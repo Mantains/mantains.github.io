@@ -1,0 +1,34 @@
+---
+import { render } from 'astro:content';
+import 'katex/dist/katex.min.css';
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import { publicNotes, noteHref, otherLang, text, profile, formatDate, pick, type Lang } from '../../../lib/site';
+export async function getStaticPaths() {
+  const notes = await publicNotes();
+  return notes.map(note => ({ params: { lang: note.data.lang, slug: note.data.urlSlug }, props: { note, translation: notes.find(n => n.data.translationKey === note.data.translationKey && n.data.lang !== note.data.lang) } }));
+}
+const { note, translation } = Astro.props;
+const lang = note.data.lang as Lang;
+const t = text[lang];
+const { Content, headings } = await render(note);
+const alternatePath = translation ? noteHref(translation) : `/${otherLang(lang)}/blog/`;
+---
+<SiteLayout lang={lang} title={note.data.title} description={note.data.description} alternatePath={alternatePath} translationAvailable={!!translation}>
+  <div class="article-layout"><article class="reading-page"><a class="text-link back-link" href={`/${lang}/blog/`}>← {t.allNotes}</a><header class="article-header"><p class="eyebrow">{t[note.data.category]}</p><h1>{note.data.title}</h1><p class="article-description">{note.data.description}</p><div class="article-meta"><span>{profile.name}</span><time datetime={note.data.pubDate}>{formatDate(note.data.pubDate, lang)}</time>{note.data.updatedDate && <span>{pick(lang, 'Updated', '更新于')} {formatDate(note.data.updatedDate, lang)}</span>}</div><div class="tags">{note.data.tags.map(tag => <span>{tag}</span>)}</div>{!translation && <p class="translation-note">{pick(lang, 'This note is currently available in English only.', '本文目前仅提供中文版。')}</p>}</header><div class="prose"><Content /></div><footer class="article-end"><a href={`/${lang}/blog/`}>← {t.allNotes}</a>{translation && <a href={noteHref(translation)}>{pick(lang, '阅读中文版', 'Read in English')} →</a>}</footer></article>{headings.length > 0 && <aside class="table-of-contents"><span class="eyebrow">{pick(lang, 'ON THIS PAGE', '本文目录')}</span><nav aria-label={pick(lang, 'Table of contents', '文章目录')}>{headings.filter(h => h.depth <= 3).map(h => <a class:list={{ subheading: h.depth === 3 }} href={`#${h.slug}`}>{h.text}</a>)}</nav></aside>}</div>
+  <script>
+    document.querySelectorAll<HTMLElement>('.prose pre').forEach(pre => {
+      const button = document.createElement('button');
+      const zh = document.documentElement.lang.startsWith('zh');
+      const label = zh ? '复制代码' : 'Copy code';
+      button.className = 'copy-code';
+      button.type = 'button';
+      button.textContent = label;
+      button.addEventListener('click', async () => {
+        try { await navigator.clipboard.writeText(pre.querySelector('code')?.textContent || ''); button.textContent = zh ? '已复制' : 'Copied'; }
+        catch { button.textContent = zh ? '复制失败' : 'Copy failed'; }
+        setTimeout(() => { button.textContent = label; }, 1800);
+      });
+      pre.append(button);
+    });
+  </script>
+</SiteLayout>

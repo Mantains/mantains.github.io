@@ -1,0 +1,12 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import { languages, profile, text, pick, type Lang } from '../../../lib/site';
+export function getStaticPaths() { return languages.map(lang => ({ params: { lang } })); }
+const lang = Astro.params.lang as Lang;
+const p = profile[lang];
+const t = text[lang];
+---
+<SiteLayout lang={lang} title={t.about}>
+  <header class="page-heading"><p class="eyebrow">A LITTLE BACKGROUND</p><h1>{pick(lang, 'About me', '关于我')}</h1><p>{p.role} · {p.affiliation}</p></header>
+  <div class="about-layout"><div class="prose"><p class="lead">{p.intro}</p><p>{p.bio}</p><h2>{t.interests}</h2><ul>{p.interests.map(i => <li>{i}</li>)}</ul><h2>{pick(lang, 'Methods & practice', '方法与实践')}</h2><p>{pick(lang, 'Population genomics, genotype–environment association, GWAS, core-collection design, multi-environment analysis, and field and image phenotyping. I use R, Python, shell scripting, Linux, and HPC workflows to connect data processing with biological interpretation.', '研究方法包括群体基因组学、基因型与环境关联、GWAS、核心种质构建、多环境分析、田间与图像表型。使用 R、Python、Shell、Linux 与高性能计算，将数据处理与生物学解释相连接。')}</p><h2>{t.education}</h2><div class="education-list">{p.education.map(e => <div><span class="eyebrow">{e.period}</span><h3>{e.title}</h3><p>{e.institution}</p></div>)}</div></div><aside class="contact-panel"><span class="eyebrow">CONTACT & LINKS</span><h2>{profile.name}</h2><p>{p.laboratory}<br />{p.affiliation}</p><a href={`mailto:${profile.email}`}>{profile.email}</a><a href={profile.orcid}>ORCID ↗</a><a href={profile.researchgate}>ResearchGate ↗</a><a href={profile.laboratory}>{p.laboratory} ↗</a><a href={profile.github}>GitHub ↗</a></aside></div>
+</SiteLayout>

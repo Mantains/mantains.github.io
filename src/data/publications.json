@@ -1,0 +1,36 @@
+[
+  {
+    "id": "himalayan-wheat-2026", "type": "article", "status": "published", "year": 2026,
+    "title": "Genomic characterization of pre-Green Revolution wheat landraces from the Nepalese and Bhutanese Himalayas reveals geographically structured diversity.",
+    "authors": "Li, Y., Meng, Z., Nitta, M., Ohta, A., Nemoto, K., Joshi, G. P., Su, Z., Gorafi, Y. S. A., & Nasuda, S.",
+    "venue": "The Plant Genome", "volume": "19", "pages": "e70320", "doi": "10.1002/tpg2.70320",
+    "featured": true, "order": 1,
+    "summary": { "en": "Genomic diversity and geographic structure in Himalayan wheat landraces collected before the Green Revolution.", "zh": "解析绿色革命前收集的喜马拉雅小麦地方品种的基因组多样性及地理结构。" }
+  },
+  {
+    "id": "tea-flavonoids-2023", "type": "article", "status": "published", "year": 2023,
+    "title": "Flavonoid metabolites in tea plant (Camellia sinensis) stress response: Insights from bibliometric analysis.",
+    "authors": "Li, Y., Chen, Y., Chen, J., & Shen, C.", "venue": "Plant Physiology and Biochemistry", "volume": "202", "pages": "107934", "doi": "10.1016/j.plaphy.2023.107934",
+    "featured": true, "order": 2,
+    "summary": { "en": "A bibliometric perspective on flavonoid metabolites and stress responses in tea.", "zh": "通过文献计量分析梳理茶树黄酮代谢物与胁迫响应的研究进展。" }
+  },
+  {
+    "id": "fresh-tea-leaves-2023", "type": "article", "status": "published", "year": 2023,
+    "title": "Topics and trends in fresh tea (Camellia sinensis) leaf research: A comprehensive bibliometric study.",
+    "authors": "Chen, Y.*, Li, Y.*, Shen, C., & Xiao, L.", "venue": "Frontiers in Plant Science", "volume": "14", "pages": "1092511", "doi": "10.3389/fpls.2023.1092511", "equalContribution": true,
+    "featured": true, "order": 3,
+    "summary": { "en": "Research topics and emerging trends across fresh tea leaf studies.", "zh": "系统梳理茶鲜叶研究的主要主题与发展趋势。" }
+  },
+  { "id": "rock-tea-fungi-2024", "type": "article", "status": "published", "year": 2024, "title": "Effects of different raw materials and processes on the fungal community of Rock tea.", "authors": "Qin, L., Li, Y., Tian, S., Zhang, C., & Shen, C.", "venue": "Journal of Food Safety and Quality", "volume": "15", "pages": "288–297", "doi": "10.19812/j.cnki.jfsq11-5956/ts.20240331001" },
+  { "id": "tea-chloroplast-2021", "type": "article", "status": "published", "year": 2021, "title": "Disruption of photomorphogenesis leads to abnormal chloroplast development and leaf variegation in Camellia sinensis.", "authors": "Gao, X., Zhang, C., Lu, C., Wang, M., Xie, N., Chen, J., Li, Y., Chen, J., & Shen, C.", "venue": "Frontiers in Plant Science", "volume": "12", "pages": "720800", "doi": "10.3389/fpls.2021.720800" },
+  { "id": "tea-processing-shading-2022", "type": "article", "status": "published", "year": 2022, "title": "Effects of preharvest shading on dynamic changes in metabolites, gene expression, and enzyme activity of three tea types during processing.", "authors": "Shao, C.*, Deng, Z.*, Liu, J.*, Li, Y., Zhang, C., Yao, S., Zuo, H., Shi, Y., Yuan, S., Qin, L., Liu, Z., & Shen, C.", "venue": "Journal of Agricultural and Food Chemistry", "volume": "70", "pages": "14544–14558", "doi": "10.1021/acs.jafc.2c05456" },
+  { "id": "tea-carbon-nitrogen-2022", "type": "article", "status": "published", "year": 2022, "title": "Carbon and nitrogen metabolism are jointly regulated during shading in roots and leaves of Camellia sinensis.", "authors": "Shao, C.*, Jiao, H.*, Chen, J.*, Zhang, C., Liu, J., Chen, J., Li, Y., Huang, J., Yang, B., Liu, Z., & Shen, C.", "venue": "Frontiers in Plant Science", "volume": "13", "pages": "894840", "doi": "10.3389/fpls.2022.894840" },
+  { "id": "tea-relighting-2022", "type": "article", "status": "published", "year": 2022, "title": "Dynamic changes of main carbon and nitrogen metabolites in tea plant shoots under shading and re-lighting.", "authors": "Chen, J., Lv, Z., Liu, J., Zhang, C., Li, Y., Chen, J., & Shen, C.", "venue": "Journal of Southern Agriculture", "volume": "53", "pages": "314–323", "doi": "10.3969/j.issn.2095-1191.2022.02.004" },
+  { "id": "tea-roots-2021", "type": "article", "status": "published", "year": 2021, "title": "Dynamic changes of physiological responses and antioxidant enzyme activities in tea root system under severe shading and removal of shading.", "authors": "Jiao, H., Shao, C., Chen, J., Zhang, C., Chen, J., Li, Y., & Shen, C.", "venue": "Journal of Tea Science", "volume": "41", "pages": "695–704", "doi": "10.13305/j.cnki.jts.2021.05.005" },
+  { "id": "csheme2-2021", "type": "article", "status": "published", "year": 2021, "title": "Cloning and bioinformatics analysis of uroporphyrinogen decarboxylase gene CsHEME2 in Camellia sinensis.", "authors": "Gao, X., Zhang, C., Yi, X., Li, Y., Chen, J., & Shen, C.", "venue": "Journal of Tea Communication", "volume": "48", "pages": "214–224" },
+  { "id": "pangenome-kmer-framework", "type": "manuscript", "status": "under-review", "year": 2026, "title": "A pangenome-guided k-mer-based GWAS-to-gene framework.", "authors": "Su, Z.*, Li, Y.*, Liu, J., Shen, R., Li, S., Feng, J., Zheng, Y., Sun, C., Ren, Y., Jia, A., & Chen, F.", "venue": "The Innovation Life", "equalContribution": true, "statusAsOf": "2026-10-22" },
+  { "id": "jsb-148-2025", "type": "presentation", "status": "presented", "year": 2025, "date": "2025-09-10", "endDate": "2025-09-11", "title": "Analysis of genetic diversity and population structure of Himalayan wheat landraces.", "authors": "Li, Y., Meng, Z., Nitta, M., Ohta, A., Nemoto, K., Gorafi, Y. S. A., & Nasuda, S.", "venue": "148th Meeting of the Japanese Society of Breeding", "location": "Sapporo, Japan", "format": "oral" },
+  { "id": "triticeae-21-2026", "type": "presentation", "status": "presented", "year": 2026, "date": "2026-08-29", "endDate": "2026-08-30", "title": "Genomic diversity and seed quality variation in Southern Himalayan wheat landraces.", "authors": "Li, Y., Choukri, H., Tika, A., Meng, Z., Nitta, M., Amri, M., Nasuda, S., & Gorafi, Y. S. A.", "venue": "21st Triticeae Meeting of Japan", "location": "Okayama, Japan", "format": "oral" },
+  { "id": "jsb-150-2026", "type": "presentation", "status": "presented", "year": 2026, "date": "2026-09-17", "endDate": "2026-09-18", "title": "Exploration of genetic diversity in seed morphology and mineral content in Southern Himalayan wheat landraces.", "authors": "Li, Y., Choukri, H., Tika, A., Meng, Z., Nitta, M., Amri, M., Nasuda, S., & Gorafi, Y. S. A.", "venue": "150th Meeting of the Japanese Society of Breeding", "location": "Fukui, Japan", "format": "poster" },
+  { "id": "camellia-thesis-2023", "type": "thesis", "status": "completed", "year": 2023, "title": "Phylogenetic Study on Genus Camellia Based on Chloroplast Genomes.", "authors": "Li, Y.", "venue": "MSc thesis · Hunan Agricultural University" }
+]

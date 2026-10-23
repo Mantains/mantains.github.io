@@ -1,0 +1,39 @@
+{
+  "name": "Li Yunfei",
+  "email": "li.yunfei.62y@st.kyoto-u.ac.jp",
+  "orcid": "https://orcid.org/0000-0003-1524-5425",
+  "researchgate": "https://www.researchgate.net/profile/Yunfei-Li-41",
+  "laboratory": "https://www.ikushu.kais.kyoto-u.ac.jp/",
+  "github": "https://github.com/Mantains",
+  "updated": "2026-10-23",
+  "en": {
+    "role": "PhD Candidate in Plant Breeding",
+    "affiliation": "Kyoto University · Kyoto, Japan",
+    "laboratory": "Laboratory of Plant Breeding",
+    "tagline": "Exploring crop diversity. Connecting genomes to the field.",
+    "intro": "I study plant genetic resources, population genomics, and quantitative genetics. My current work brings together wheat landraces, genomic data, and field phenotyping to understand diversity and adaptation, and to support conservation and pre-breeding.",
+    "bio": "My research has progressed from tea genetic resources and multi-omics, through rice genetics, to wheat diversity and climate adaptation. I work across bioinformatics, multi-environment field experiments, image-based phenotyping, and statistical analysis, with a focus on reproducible research.",
+    "interests": ["Plant genetic resources", "Population & landscape genomics", "Quantitative genetics", "Field & image phenotyping"],
+    "education": [
+      { "period": "2024–2027 (expected)", "title": "PhD in Plant Breeding", "institution": "Kyoto University, Japan" },
+      { "period": "2022–2023", "title": "Research Student in Plant Genetics", "institution": "Kagoshima University, Japan" },
+      { "period": "2020–2023", "title": "MSc in Horticulture (Tea Science)", "institution": "Hunan Agricultural University, China" },
+      { "period": "2016–2020", "title": "BSc in Tea Science", "institution": "Hunan Agricultural University, China" }
+    ]
+  },
+  "zh": {
+    "role": "植物育种学博士研究生",
+    "affiliation": "京都大学 · 日本京都",
+    "laboratory": "育种学研究室",
+    "tagline": "探索作物多样性，连接基因组与田间。",
+    "intro": "我的研究围绕植物遗传资源、群体基因组学与数量遗传学展开。目前主要结合小麦地方品种、基因组数据和田间表型，理解遗传多样性与环境适应，为种质保护和预育种提供依据。",
+    "bio": "我的研究经历从茶树遗传资源与多组学，延伸到水稻遗传学，以及小麦多样性与气候适应。研究方法涵盖生物信息分析、多环境田间试验、图像表型与统计分析，并注重工作流程的可重复性。",
+    "interests": ["植物遗传资源", "群体与景观基因组学", "数量遗传学", "田间与图像表型"],
+    "education": [
+      { "period": "2024–2027（预计）", "title": "植物育种学博士", "institution": "京都大学，日本" },
+      { "period": "2022–2023", "title": "植物遗传学研究生", "institution": "鹿儿岛大学，日本" },
+      { "period": "2020–2023", "title": "园艺学硕士（茶学）", "institution": "湖南农业大学，中国" },
+      { "period": "2016–2020", "title": "茶学学士", "institution": "湖南农业大学，中国" }
+    ]
+  }
+}

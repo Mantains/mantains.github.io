@@ -1,0 +1,41 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import { languages, publicNotes, categories, text, noteHref, formatDate, pick, type Lang } from '../../../lib/site';
+export function getStaticPaths() { return languages.map(lang => ({ params: { lang } })); }
+const lang = Astro.params.lang as Lang;
+const t = text[lang];
+const notes = await publicNotes(lang);
+---
+<SiteLayout lang={lang} title={t.blog}>
+  <header class="page-heading"><p class="eyebrow">THE RESEARCH NOTEBOOK</p><h1>{t.notes}</h1><p>{pick(lang, 'Methods, workflows, and practical ideas from computational plant research.', '记录计算植物科学中的方法、工作流程与实践经验。')}</p></header>
+  <div class="notebook-topics">{categories.map((category, i) => <div><span class="eyebrow">0{i + 1}</span><h2>{t[category]}</h2><p>{t[`${category}Description`]}</p></div>)}</div>
+  <div class="note-controls"><label class="search-field"><span class="sr-only">{pick(lang, 'Search notes', '搜索笔记')}</span><input type="search" id="note-search" placeholder={pick(lang, 'Search titles, topics, or tags…', '搜索标题、主题或标签…')} /></label><label><span class="sr-only">{pick(lang, 'Filter category', '筛选分类')}</span><select id="category-filter"><option value="all">{pick(lang, 'All topics', '全部主题')}</option>{categories.map(c => <option value={c}>{t[c]}</option>)}</select></label></div>
+  <div id="notes-list">{notes.map(note => <article class="note-row" data-note data-category={note.data.category} data-search={`${note.data.title} ${note.data.description} ${note.data.tags.join(' ')}`.toLowerCase()}><div class="article-meta"><span>{t[note.data.category]}</span><time datetime={note.data.pubDate}>{formatDate(note.data.pubDate, lang)}</time></div><h2><a href={noteHref(note)}>{note.data.title} <span aria-hidden="true">↗</span></a></h2><p>{note.data.description}</p><div class="tags">{note.data.tags.map(tag => <span>{tag}</span>)}</div></article>)}</div>
+  <div class="notebook-empty full-empty" id="empty-state" hidden={notes.length > 0}><span class="notebook-glyph" aria-hidden="true">[ &nbsp; ]</span><div><h2>{t.empty}</h2><p>{t.emptyDescription}</p><a class="text-link" href={`/${lang}/rss.xml`}>{pick(lang, 'Follow via RSS', '通过 RSS 订阅')} →</a></div></div>
+  <p id="no-results" class="no-results" role="status" hidden>{pick(lang, 'No notes match this search.', '没有找到匹配的笔记。')}</p>
+  <script>
+    const search = document.querySelector<HTMLInputElement>('#note-search');
+    const filter = document.querySelector<HTMLSelectElement>('#category-filter');
+    const rows = [...document.querySelectorAll<HTMLElement>('[data-note]')];
+    const update = () => {
+      const query = search?.value.trim().toLocaleLowerCase() || '';
+      let visible = 0;
+      rows.forEach(row => {
+        row.hidden = !((filter?.value === 'all' || row.dataset.category === filter?.value) && (row.dataset.search || '').includes(query));
+        if (!row.hidden) visible++;
+      });
+      const message = document.querySelector<HTMLElement>('#no-results');
+      if (message) message.hidden = rows.length === 0 || visible > 0;
+    };
+    const category = new URLSearchParams(location.search).get('category');
+    if (filter && category && [...filter.options].some(o => o.value === category)) filter.value = category;
+    search?.addEventListener('input', update);
+    filter?.addEventListener('change', () => {
+      const url = new URL(location.href);
+      if (filter.value === 'all') url.searchParams.delete('category'); else url.searchParams.set('category', filter.value);
+      history.replaceState(null, '', url);
+      update();
+    });
+    update();
+  </script>
+</SiteLayout>

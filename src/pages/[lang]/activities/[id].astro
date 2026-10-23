@@ -1,0 +1,12 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import { languages, activities, publications, text, pick, type Lang } from '../../../lib/site';
+export function getStaticPaths() { return languages.flatMap(lang => activities.map(item => ({ params: { lang, id: item.id }, props: { item } }))); }
+const lang = Astro.params.lang as Lang;
+const { item } = Astro.props;
+const t = text[lang];
+const related = publications.filter(p => (item.publicationIds || []).includes(p.id));
+---
+<SiteLayout lang={lang} title={item.title[lang]} description={item.summary[lang]}>
+  <article class="reading-page"><a class="text-link back-link" href={`/${lang}/activities/`}>← {t.allActivities}</a><header class="article-header"><p class="eyebrow">{t[item.category as 'fieldwork']} · {item.location[lang]}</p><h1>{item.title[lang]}</h1><div class="article-meta"><span>{item.date || item.year}{item.endDate && ` — ${item.endDate}`}</span><span class:list={['badge', { planned: item.status === 'planned' }]}>{t[item.status as 'planned' | 'completed']}</span></div></header><div class="prose"><p>{item.body[lang]}</p>{item.status === 'planned' && <aside class="callout">{pick(lang, 'Planned activity. Dates and arrangements may change.', '此活动尚在计划中，时间与安排可能调整。')}</aside>}{related.length > 0 && <><h2>{pick(lang, 'Related outputs', '相关成果')}</h2><ul>{related.map(p => <li><a href={`/${lang}/publications/#${p.id}`}>{p.title}</a></li>)}</ul></>}</div></article>
+</SiteLayout>

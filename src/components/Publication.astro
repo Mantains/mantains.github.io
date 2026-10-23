@@ -1,0 +1,17 @@
+---
+import { text, pick, type Lang } from '../lib/site';
+const { item, lang, compact = false } = Astro.props;
+const t = text[lang as Lang];
+const authors = item.authors.split(/(Li, Y\.\*?)/g);
+---
+<article class:list={['publication', { compact }]} id={item.id}>
+  <div class="pub-year">{item.year}<span>{item.type === 'presentation' ? t[item.format as 'oral' | 'poster'] : item.status === 'under-review' ? t.review : item.type === 'thesis' ? t.thesis : pick(lang, 'ARTICLE', '期刊论文')}</span></div>
+  <div class="pub-content">
+    <h3>{item.doi ? <a href={`https://doi.org/${item.doi}`}>{item.title} <span class="external-arrow" aria-hidden="true">↗</span></a> : item.title}</h3>
+    <p class="authors">{authors.map((part: string) => part.startsWith('Li, Y.') ? <strong>{part}</strong> : part)}</p>
+    <p class="venue"><em>{item.venue}</em>{item.volume && ` · ${item.volume}`}{item.issue && `(${item.issue})`}{item.pages && `, ${item.pages}`}{item.location && ` · ${item.location}`}</p>
+    {item.date && <p class="pub-date">{item.date}{item.endDate && ` — ${item.endDate}`}</p>}
+    {compact && item.summary && <p class="pub-summary">{item.summary[lang]}</p>}
+    <div class="pub-links">{item.doi && <a href={`https://doi.org/${item.doi}`}>DOI ↗</a>}<a href={`/citations/${item.id}.bib`} download={`${item.id}.bib`}>BibTeX ↓</a>{item.equalContribution && <span>{pick(lang, '* Equal contribution', '* 共同贡献')}</span>}</div>
+  </div>
+</article>

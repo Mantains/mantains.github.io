@@ -1,0 +1,23 @@
+[
+  {
+    "id": "bhutan-fieldwork-2026", "year": 2026, "status": "completed", "category": "fieldwork", "featured": true, "order": 1,
+    "location": { "en": "Bhutan", "zh": "不丹" },
+    "title": { "en": "Wheat genetic resources, in the field", "zh": "走进田间：不丹小麦遗传资源研究" },
+    "summary": { "en": "Farmer interviews and multi-elevation field trials, connecting local production knowledge with wheat germplasm research.", "zh": "开展农户访谈与多海拔田间试验，将当地生产经验、种质历史与小麦遗传资源研究相结合。" },
+    "body": { "en": "As part of a collaborative wheat genetic resources project, I conducted farmer interviews, helped design and establish multi-elevation field trials, and worked with partner institutions to connect field observations with accession histories and genomic analyses.", "zh": "在合作开展的小麦遗传资源项目中，我参与农户访谈、试验地点规划、试验布局与材料种植，并与合作机构共同连接田间观察、种质来源记录及基因组分析。" }
+  },
+  {
+    "id": "bhutan-lab-training-2026", "year": 2026, "status": "completed", "category": "training", "featured": true, "order": 2,
+    "location": { "en": "Bhutan", "zh": "不丹" },
+    "title": { "en": "Hands-on training in wheat DNA extraction", "zh": "小麦基因组 DNA 提取实践教学" },
+    "summary": { "en": "Demonstration and supervised laboratory practice, with an emphasis on sample handling and reproducible procedures.", "zh": "通过操作示范和实验指导开展小麦 DNA 提取教学，注重样品处理和实验流程的可重复性。" },
+    "body": { "en": "I taught wheat genomic DNA extraction through demonstrations and supervised practice within the collaborative wheat genetic resources project in Bhutan.", "zh": "在不丹小麦遗传资源合作项目中，通过示范与现场指导开展小麦基因组 DNA 提取实践教学。" }
+  },
+  {
+    "id": "europe-academic-visits-2026", "year": 2026, "date": "2026-12-02", "endDate": "2026-12-13", "status": "planned", "category": "exchange", "featured": true, "order": 3,
+    "location": { "en": "Switzerland & Germany", "zh": "瑞士与德国" },
+    "title": { "en": "Academic visits & BioHackathon Germany", "zh": "欧洲学术访问与德国 BioHackathon" },
+    "summary": { "en": "Planned research discussions in Zurich and participation in BioHackathon Germany on image-based wheat phenotyping.", "zh": "计划在苏黎世开展研究交流，并参加德国 BioHackathon，围绕小麦图像表型开展合作。" },
+    "body": { "en": "Planned visits include ETH Zurich and the University of Zurich, followed by BioHackathon Germany in Göttingen (7–11 December). Topics include wheat diversity, adaptation, image-based phenotyping, and wheat spike detection. This activity is planned, not yet completed.", "zh": "计划访问苏黎世联邦理工学院与苏黎世大学，随后参加哥廷根的德国 BioHackathon（12 月 7–11 日）。交流主题包括小麦多样性、适应性、图像表型与麦穗检测。本活动尚未完成。" }
+  }
+]

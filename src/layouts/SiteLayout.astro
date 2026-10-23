@@ -1,0 +1,48 @@
+---
+import '../styles/global.css';
+import { profile, text, otherLang, pick, type Lang } from '../lib/site';
+interface Props { lang: Lang; title?: string; description?: string; alternatePath?: string; translationAvailable?: boolean; }
+const { lang, title, description = profile[lang].intro, alternatePath, translationAvailable = true } = Astro.props;
+const t = text[lang];
+const other = otherLang(lang);
+const canonical = new URL(Astro.url.pathname.replace(/^\/404\/?$/, '/404.html'), Astro.site);
+const alternate = alternatePath || Astro.url.pathname.replace(`/${lang}/`, `/${other}/`);
+const pageTitle = title ? `${title} — ${profile.name}` : `${profile.name} — ${pick(lang, 'Plant Breeding & Genomics', '植物育种与基因组学')}`;
+const nav = [['home', ''], ['publications', 'publications/'], ['blog', 'blog/'], ['activities', 'activities/'], ['about', 'about/']] as const;
+---
+<!doctype html>
+<html lang={lang === 'zh' ? 'zh-CN' : 'en'}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f7f0" />
+    <meta name="description" content={description} />
+    <title>{pageTitle}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang={lang === 'zh' ? 'zh-CN' : 'en'} href={canonical} />
+    {translationAvailable && <link rel="alternate" hreflang={other === 'zh' ? 'zh-CN' : 'en'} href={new URL(alternate, Astro.site)} />}
+    <link rel="alternate" type="application/rss+xml" title={`${profile.name} · ${t.blog}`} href={`/${lang}/rss.xml`} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={lang === 'zh' ? 'zh_CN' : 'en_US'} />
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{pick(lang, 'Skip to content', '跳转到正文')}</a>
+    <header class="site-header shell">
+      <a class="brand" href={`/${lang}/`} aria-label={`${profile.name} · ${t.home}`}><span class="brand-mark" aria-hidden="true">yl.</span><span>{profile.name}</span></a>
+      <nav aria-label={pick(lang, 'Main navigation', '主导航')}>
+        {nav.map(([key, path]) => <a href={`/${lang}/${path}`} aria-current={Astro.url.pathname === `/${lang}/${path}` || (path && Astro.url.pathname.startsWith(`/${lang}/${path}`)) ? 'page' : undefined}>{t[key]}</a>)}
+      </nav>
+      <a class="language-switch" href={alternate} lang={other === 'zh' ? 'zh-CN' : 'en'} title={translationAvailable ? pick(lang, '切换到中文', 'Switch to English') : pick(lang, 'Chinese notes index; this note has no translation', '英文笔记目录；本文暂无英文译文')}>{other === 'zh' ? '中文' : 'EN'} <span aria-hidden="true">↗</span></a>
+    </header>
+    <main id="main" class="shell"><slot /></main>
+    <footer class="site-footer shell">
+      <div><a href={`/${lang}/`}>{profile.name}</a><span>{t.footer}</span></div>
+      <div class="footer-links"><a href={`/${lang}/rss.xml`}>RSS</a><a href={profile.github}>GitHub ↗</a><span>© {new Date().getUTCFullYear()}</span></div>
+    </footer>
+  </body>
+</html>

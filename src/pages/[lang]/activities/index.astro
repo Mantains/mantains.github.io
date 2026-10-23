@@ -1,0 +1,11 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import Activity from '../../../components/Activity.astro';
+import { languages, text, activities, pick, type Lang } from '../../../lib/site';
+export function getStaticPaths() { return languages.map(lang => ({ params: { lang } })); }
+const lang = Astro.params.lang as Lang;
+---
+<SiteLayout lang={lang} title={text[lang].activities}>
+  <header class="page-heading"><p class="eyebrow">BEYOND THE DESK</p><h1>{pick(lang, 'Fieldwork, exchange & learning', '田间、交流与实践')}</h1><p>{pick(lang, 'Research takes shape through field experience, shared methods, and conversations across borders.', '在田间积累经验，在实践中交流方法，在跨国合作中拓展研究。')}</p></header>
+  {['planned', 'completed'].map(status => <section class="activity-section"><div class="section-heading"><h2>{text[lang][status as 'planned' | 'completed']}</h2></div>{activities.filter(a => a.status === status).map(item => <Activity item={item} lang={lang} />)}</section>)}
+</SiteLayout>

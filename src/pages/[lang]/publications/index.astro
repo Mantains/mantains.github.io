@@ -1,0 +1,14 @@
+---
+import SiteLayout from '../../../layouts/SiteLayout.astro';
+import Publication from '../../../components/Publication.astro';
+import { languages, text, publications, pick, type Lang } from '../../../lib/site';
+export function getStaticPaths() { return languages.map(lang => ({ params: { lang } })); }
+const lang = Astro.params.lang as Lang;
+const t = text[lang];
+const sections = [['article', 'articles'], ['presentation', 'presentations'], ['manuscript', 'manuscripts'], ['thesis', 'thesis']] as const;
+---
+<SiteLayout lang={lang} title={pick(lang, 'Publications & Presentations', '研究成果与学会发表')}>
+  <header class="page-heading"><p class="eyebrow">RESEARCH OUTPUT</p><h1>{pick(lang, 'Publications & presentations', '研究成果与学会发表')}</h1><p>{t.dateAsOf} {pick(lang, 'Published work, presentations, and manuscripts are listed separately.', '已发表论文、学会发表与审稿中稿件分别列出。')}</p></header>
+  <nav class="section-jumps" aria-label={pick(lang, 'Publication types', '成果类型')}>{sections.map(([type, label]) => <a href={`#${type}`}>{t[label]} <span>{publications.filter(p => p.type === type).length}</span></a>)}</nav>
+  {sections.map(([type, label]) => <section class="publication-section" id={type}><div class="section-heading"><h2>{t[label]}</h2></div>{publications.filter(p => p.type === type).sort((a,b) => b.year - a.year || (b.date || '').localeCompare(a.date || '')).map(item => <Publication item={item} lang={lang} />)}</section>)}
+</SiteLayout>
