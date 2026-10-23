@@ -1,23 +1,234 @@
 [
   {
-    "id": "bhutan-fieldwork-2026", "year": 2026, "status": "completed", "category": "fieldwork", "featured": true, "order": 1,
-    "location": { "en": "Bhutan", "zh": "不丹" },
-    "title": { "en": "Wheat genetic resources, in the field", "zh": "走进田间：不丹小麦遗传资源研究" },
-    "summary": { "en": "Farmer interviews and multi-elevation field trials, connecting local production knowledge with wheat germplasm research.", "zh": "开展农户访谈与多海拔田间试验，将当地生产经验、种质历史与小麦遗传资源研究相结合。" },
-    "body": { "en": "As part of a collaborative wheat genetic resources project, I conducted farmer interviews, helped design and establish multi-elevation field trials, and worked with partner institutions to connect field observations with accession histories and genomic analyses.", "zh": "在合作开展的小麦遗传资源项目中，我参与农户访谈、试验地点规划、试验布局与材料种植，并与合作机构共同连接田间观察、种质来源记录及基因组分析。" }
+    "id": "bhutan-fieldwork-2026",
+    "year": 2026,
+    "status": "completed",
+    "category": "fieldwork",
+    "featured": true,
+    "order": 1,
+    "location": {
+      "en": "Bhutan",
+      "zh": "不丹"
+    },
+    "title": {
+      "en": "Field research & academic exchange in Bhutan",
+      "zh": "不丹实地研究与学术交流"
+    },
+    "summary": {
+      "en": "Farmer interviews, mountain fieldwork, and a visit to the Royal University of Bhutan, connecting local knowledge with wheat genetic resources research.",
+      "zh": "通过农户访谈、山地田间实践与不丹皇家大学访问，将地方生产经验与小麦遗传资源研究相连接。"
+    },
+    "body": {
+      "en": "During a 2026 visit to Bhutan, I combined wheat genetic resources fieldwork with farmer interviews and academic exchange. The visit included the Royal University of Bhutan (RUB) and its College of Natural Resources (CNR), where I also carried out practical teaching in wheat DNA extraction.",
+      "zh": "2026 年的不丹访问结合了小麦遗传资源实地研究、农户访谈与学术交流。访问机构包括不丹皇家大学（RUB）及其自然资源学院（CNR）；在 CNR，我还开展了小麦 DNA 提取实践教学。"
+    },
+    "cover": {
+      "src": "/images/activities/bhutan-fieldwork-2026/farmer-interview.jpg",
+      "width": 1706,
+      "height": 1280,
+      "alt": {
+        "en": "Research team and a farmer in conversation around a table, with a notebook and laptop.",
+        "zh": "研究团队与农户围坐交流，使用笔记本与电脑记录访谈。"
+      },
+      "caption": {
+        "en": "A farmer interview during the Bhutan visit: discussing local production practices and knowledge associated with crop genetic resources.",
+        "zh": "不丹访问期间的农户访谈：围绕当地生产实践与作物种质相关知识开展交流。"
+      }
+    },
+    "sections": [
+      {
+        "id": "farmer-interviews",
+        "title": {
+          "en": "Listening to farmers, connecting to the field",
+          "zh": "农户访谈与田间实践"
+        },
+        "paragraphs": [
+          {
+            "en": "Farmer interviews provided an opportunity to document local production practices and germplasm-related knowledge. Alongside these conversations, I worked on the planning and establishment of multi-elevation field trials, connecting field observations with accession histories and genomic analysis.",
+            "zh": "通过农户访谈记录当地生产实践与种质相关知识。同时参与多海拔田间试验的地点规划、试验布局与材料种植，将田间观察与种质来源记录、基因组分析相连接。"
+          }
+        ],
+        "photos": []
+      },
+      {
+        "id": "rub-exchange",
+        "title": {
+          "en": "Academic exchange at RUB",
+          "zh": "RUB 访问交流"
+        },
+        "paragraphs": [
+          {
+            "en": "The visit to the Royal University of Bhutan formed part of the academic exchange during this trip. Alongside the RUB visit, I carried out practical teaching at its College of Natural Resources, bringing together institutional exchange and hands-on laboratory work.",
+            "zh": "此次行程中访问了不丹皇家大学，并在其自然资源学院开展实践教学，将机构交流与实验操作相结合。下方合影记录了 RUB 访问期间的交流。"
+          }
+        ],
+        "photos": [
+          {
+            "src": "/images/activities/bhutan-fieldwork-2026/rub-visit.jpg",
+            "width": 1280,
+            "height": 2275,
+            "alt": {
+              "en": "Four visitors and hosts posing indoors during a visit to the Royal University of Bhutan.",
+              "zh": "不丹皇家大学（RUB）访问期间的室内合影。"
+            },
+            "caption": {
+              "en": "A group photograph during the visit to the Royal University of Bhutan (RUB).",
+              "zh": "访问不丹皇家大学（Royal University of Bhutan，RUB）期间的合影。"
+            }
+          }
+        ]
+      },
+      {
+        "id": "landscape-and-culture",
+        "title": {
+          "en": "Landscape & everyday impressions",
+          "zh": "山地景观与人文印象"
+        },
+        "paragraphs": [
+          {
+            "en": "Beyond the research activities, these photographs record the mountain scenery, rivers, and traditional architecture encountered during the visit.",
+            "zh": "研究与交流之外，这些照片记录了访问途中所见的山地、河流与传统建筑。"
+          }
+        ],
+        "photos": [
+          {
+            "src": "/images/activities/bhutan-fieldwork-2026/mountain-landscape.jpg",
+            "width": 1919,
+            "height": 1080,
+            "alt": {
+              "en": "Colourful prayer flags in front of cloud-covered mountains and a green valley in Bhutan.",
+              "zh": "不丹山谷中的彩色经幡，远处是云层下的山地与植被。"
+            },
+            "caption": {
+              "en": "Mountain landscapes and prayer flags seen during the Bhutan visit.",
+              "zh": "不丹访问途中所见的山地景观与经幡。"
+            }
+          },
+          {
+            "src": "/images/activities/bhutan-fieldwork-2026/riverside-visit.jpg",
+            "width": 1080,
+            "height": 608,
+            "alt": {
+              "en": "A personal travel photograph beside a river, with traditional Bhutanese architecture and mountains in the background.",
+              "zh": "河畔个人留影，背景为不丹传统建筑与山地景观。"
+            },
+            "caption": {
+              "en": "A moment from the visit, with Bhutanese architecture, rivers, and mountain scenery.",
+              "zh": "访问途中的留影：不丹传统建筑、河流与山地景观。"
+            }
+          }
+        ]
+      }
+    ],
+    "links": [
+      {
+        "label": {
+          "en": "Royal University of Bhutan · RUB",
+          "zh": "不丹皇家大学 · RUB"
+        },
+        "href": "https://www.rub.edu.bt/"
+      }
+    ],
+    "relatedActivityIds": [
+      "bhutan-lab-training-2026"
+    ]
   },
   {
-    "id": "bhutan-lab-training-2026", "year": 2026, "status": "completed", "category": "training", "featured": true, "order": 2,
-    "location": { "en": "Bhutan", "zh": "不丹" },
-    "title": { "en": "Hands-on training in wheat DNA extraction", "zh": "小麦基因组 DNA 提取实践教学" },
-    "summary": { "en": "Demonstration and supervised laboratory practice, with an emphasis on sample handling and reproducible procedures.", "zh": "通过操作示范和实验指导开展小麦 DNA 提取教学，注重样品处理和实验流程的可重复性。" },
-    "body": { "en": "I taught wheat genomic DNA extraction through demonstrations and supervised practice within the collaborative wheat genetic resources project in Bhutan.", "zh": "在不丹小麦遗传资源合作项目中，通过示范与现场指导开展小麦基因组 DNA 提取实践教学。" }
+    "id": "bhutan-lab-training-2026",
+    "year": 2026,
+    "status": "completed",
+    "category": "training",
+    "featured": true,
+    "order": 2,
+    "location": {
+      "en": "College of Natural Resources · Bhutan",
+      "zh": "自然资源学院 · 不丹"
+    },
+    "title": {
+      "en": "Wheat DNA extraction practical teaching at CNR",
+      "zh": "CNR 小麦 DNA 提取实践教学"
+    },
+    "summary": {
+      "en": "Practical teaching at the College of Natural Resources, Royal University of Bhutan, combining demonstration and supervised practice in wheat genomic DNA extraction.",
+      "zh": "在不丹皇家大学自然资源学院，通过操作示范与实验指导开展小麦基因组 DNA 提取实践教学。"
+    },
+    "body": {
+      "en": "During the visit to the College of Natural Resources (CNR), Royal University of Bhutan, I carried out practical teaching in wheat genomic DNA extraction as part of the collaborative wheat genetic resources project.",
+      "zh": "访问不丹皇家大学自然资源学院（College of Natural Resources，CNR）期间，我结合小麦遗传资源合作项目，在学院开展了小麦基因组 DNA 提取实践教学。"
+    },
+    "cover": {
+      "src": "/images/activities/bhutan-lab-training-2026/cnr-visit.jpg",
+      "width": 1200,
+      "height": 1600,
+      "alt": {
+        "en": "A group photograph in the courtyard of the College of Natural Resources, Royal University of Bhutan.",
+        "zh": "不丹皇家大学自然资源学院（CNR）访问期间的校园合影。"
+      },
+      "caption": {
+        "en": "A campus group photograph at the College of Natural Resources (CNR), Royal University of Bhutan. Wheat DNA extraction practical teaching was carried out during this visit.",
+        "zh": "访问不丹皇家大学自然资源学院（CNR）期间的校园合影；此次访问中在学院开展了小麦 DNA 提取实践教学。"
+      }
+    },
+    "sections": [
+      {
+        "id": "practical-teaching",
+        "title": {
+          "en": "From demonstration to hands-on practice",
+          "zh": "从操作示范到动手实践"
+        },
+        "paragraphs": [
+          {
+            "en": "Teaching combined demonstrations with supervised laboratory practice, with an emphasis on sample handling and reproducible procedures.",
+            "zh": "教学通过操作示范与实验指导相结合的方式进行，注重样品处理和实验流程的可重复性。"
+          }
+        ],
+        "photos": []
+      }
+    ],
+    "links": [
+      {
+        "label": {
+          "en": "College of Natural Resources · CNR",
+          "zh": "自然资源学院 · CNR"
+        },
+        "href": "https://www.cnr.edu.bt/"
+      },
+      {
+        "label": {
+          "en": "Royal University of Bhutan · RUB",
+          "zh": "不丹皇家大学 · RUB"
+        },
+        "href": "https://www.rub.edu.bt/"
+      }
+    ],
+    "relatedActivityIds": [
+      "bhutan-fieldwork-2026"
+    ]
   },
   {
-    "id": "europe-academic-visits-2026", "year": 2026, "date": "2026-12-02", "endDate": "2026-12-13", "status": "planned", "category": "exchange", "featured": true, "order": 3,
-    "location": { "en": "Switzerland & Germany", "zh": "瑞士与德国" },
-    "title": { "en": "Academic visits & BioHackathon Germany", "zh": "欧洲学术访问与德国 BioHackathon" },
-    "summary": { "en": "Planned research discussions in Zurich and participation in BioHackathon Germany on image-based wheat phenotyping.", "zh": "计划在苏黎世开展研究交流，并参加德国 BioHackathon，围绕小麦图像表型开展合作。" },
-    "body": { "en": "Planned visits include ETH Zurich and the University of Zurich, followed by BioHackathon Germany in Göttingen (7–11 December). Topics include wheat diversity, adaptation, image-based phenotyping, and wheat spike detection. This activity is planned, not yet completed.", "zh": "计划访问苏黎世联邦理工学院与苏黎世大学，随后参加哥廷根的德国 BioHackathon（12 月 7–11 日）。交流主题包括小麦多样性、适应性、图像表型与麦穗检测。本活动尚未完成。" }
+    "id": "europe-academic-visits-2026",
+    "year": 2026,
+    "date": "2026-12-02",
+    "endDate": "2026-12-13",
+    "status": "planned",
+    "category": "exchange",
+    "featured": true,
+    "order": 3,
+    "location": {
+      "en": "Switzerland & Germany",
+      "zh": "瑞士与德国"
+    },
+    "title": {
+      "en": "Academic visits & BioHackathon Germany",
+      "zh": "欧洲学术访问与德国 BioHackathon"
+    },
+    "summary": {
+      "en": "Planned research discussions in Zurich and participation in BioHackathon Germany on image-based wheat phenotyping.",
+      "zh": "计划在苏黎世开展研究交流，并参加德国 BioHackathon，围绕小麦图像表型开展合作。"
+    },
+    "body": {
+      "en": "Planned visits include ETH Zurich and the University of Zurich, followed by BioHackathon Germany in Göttingen (7–11 December). Topics include wheat diversity, adaptation, image-based phenotyping, and wheat spike detection. This activity is planned, not yet completed.",
+      "zh": "计划访问苏黎世联邦理工学院与苏黎世大学，随后参加哥廷根的德国 BioHackathon（12 月 7–11 日）。交流主题包括小麦多样性、适应性、图像表型与麦穗检测。本活动尚未完成。"
+    }
   }
 ]

@@ -2,6 +2,13 @@ import { z } from 'zod';
 
 const date = z.string().regex(/^\d{4}-\d{2}-\d{2}$/).refine(v => !Number.isNaN(Date.parse(v)), 'Invalid date');
 const bilingual = z.object({ en: z.string().min(1), zh: z.string().min(1) });
+const activityPhoto = z.object({
+  src: z.string().regex(/^\/images\/activities\/[a-z0-9-]+\/[a-z0-9-]+\.(jpg|jpeg|png|webp)$/),
+  width: z.number().int().positive(),
+  height: z.number().int().positive(),
+  alt: bilingual,
+  caption: bilingual
+});
 export const noteSchema = z.object({
   title: z.string().min(1), description: z.string().min(1),
   lang: z.enum(['en', 'zh']),
@@ -37,5 +44,14 @@ export const activitySchema = z.object({
   category: z.enum(['fieldwork', 'training', 'exchange', 'seminar']),
   featured: z.boolean().optional(), order: z.number().optional(),
   location: bilingual, title: bilingual, summary: bilingual, body: bilingual,
-  publicationIds: z.array(z.string()).optional()
+  publicationIds: z.array(z.string()).optional(),
+  cover: activityPhoto.optional(),
+  sections: z.array(z.object({
+    id: z.string().regex(/^[a-z0-9-]+$/),
+    title: bilingual,
+    paragraphs: z.array(bilingual).default([]),
+    photos: z.array(activityPhoto).default([])
+  })).optional(),
+  relatedActivityIds: z.array(z.string()).optional(),
+  links: z.array(z.object({ label: bilingual, href: z.url() })).optional()
 });

@@ -5,5 +5,12 @@ const t = text[lang as Lang];
 ---
 <article class="activity-row">
   <div class="activity-meta"><span>{item.date || item.year}</span><span class:list={['badge', { planned: item.status === 'planned' }]}>{t[item.status as 'planned' | 'completed']}</span></div>
-  <div><div class="eyebrow">{t[item.category as 'fieldwork']} · {item.location[lang]}</div><h3><a href={`/${lang}/activities/${item.id}/`}>{item.title[lang]} <span aria-hidden="true">↗</span></a></h3><p>{item.summary[lang]}</p></div>
+  <div class:list={['activity-content', { 'has-photo': !!item.cover }]}>
+    <div>
+      <div class="eyebrow">{t[item.category as 'fieldwork']} · {item.location[lang]}</div>
+      <h3><a href={`/${lang}/activities/${item.id}/`}>{item.title[lang]} <span aria-hidden="true">↗</span></a></h3>
+      <p>{item.summary[lang]}</p>
+    </div>
+    {item.cover && <a class="activity-thumbnail" href={`/${lang}/activities/${item.id}/`} tabindex="-1" aria-hidden="true"><img src={item.cover.src} width={item.cover.width} height={item.cover.height} alt="" loading="lazy" decoding="async" /></a>}
+  </div>
 </article>

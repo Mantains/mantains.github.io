@@ -1,12 +1,59 @@
 ---
 import SiteLayout from '../../../layouts/SiteLayout.astro';
+import ActivityPhoto from '../../../components/ActivityPhoto.astro';
 import { languages, activities, publications, text, pick, type Lang } from '../../../lib/site';
 export function getStaticPaths() { return languages.flatMap(lang => activities.map(item => ({ params: { lang, id: item.id }, props: { item } }))); }
 const lang = Astro.params.lang as Lang;
 const { item } = Astro.props;
 const t = text[lang];
 const related = publications.filter(p => (item.publicationIds || []).includes(p.id));
+const relatedActivities = activities.filter(a => (item.relatedActivityIds || []).includes(a.id));
 ---
 <SiteLayout lang={lang} title={item.title[lang]} description={item.summary[lang]}>
-  <article class="reading-page"><a class="text-link back-link" href={`/${lang}/activities/`}>← {t.allActivities}</a><header class="article-header"><p class="eyebrow">{t[item.category as 'fieldwork']} · {item.location[lang]}</p><h1>{item.title[lang]}</h1><div class="article-meta"><span>{item.date || item.year}{item.endDate && ` — ${item.endDate}`}</span><span class:list={['badge', { planned: item.status === 'planned' }]}>{t[item.status as 'planned' | 'completed']}</span></div></header><div class="prose"><p>{item.body[lang]}</p>{item.status === 'planned' && <aside class="callout">{pick(lang, 'Planned activity. Dates and arrangements may change.', '此活动尚在计划中，时间与安排可能调整。')}</aside>}{related.length > 0 && <><h2>{pick(lang, 'Related outputs', '相关成果')}</h2><ul>{related.map(p => <li><a href={`/${lang}/publications/#${p.id}`}>{p.title}</a></li>)}</ul></>}</div></article>
+  <article class="reading-page activity-detail">
+    <a class="text-link back-link" href={`/${lang}/activities/`}>← {t.allActivities}</a>
+    <header class="article-header">
+      <p class="eyebrow">{t[item.category as 'fieldwork']} · {item.location[lang]}</p>
+      <h1>{item.title[lang]}</h1>
+      <div class="article-meta">
+        <span>{item.date || item.year}{item.endDate && ` — ${item.endDate}`}</span>
+        <span class:list={['badge', { planned: item.status === 'planned' }]}>{t[item.status as 'planned' | 'completed']}</span>
+      </div>
+    </header>
+
+    <div class="prose">
+      <p>{item.body[lang]}</p>
+      {item.cover && <ActivityPhoto photo={item.cover} lang={lang} priority />}
+
+      {item.sections?.map(section => (
+        <section class="activity-story-section" id={section.id}>
+          <h2>{section.title[lang]}</h2>
+          {section.paragraphs.map(paragraph => <p>{paragraph[lang]}</p>)}
+          {section.photos.length > 0 && (
+            <div class:list={['activity-photo-grid', { paired: section.photos.length === 2 }]}>
+              {section.photos.map(photo => <ActivityPhoto photo={photo} lang={lang} />)}
+            </div>
+          )}
+        </section>
+      ))}
+
+      {item.status === 'planned' && <aside class="callout">{pick(lang, 'Planned activity. Dates and arrangements may change.', '此活动尚在计划中，时间与安排可能调整。')}</aside>}
+
+      {item.links?.length > 0 && (
+        <aside class="activity-institutions" aria-label={pick(lang, 'Institution links', '访问机构链接')}>
+          <span class="eyebrow">{pick(lang, 'INSTITUTIONS', '访问机构')}</span>
+          <div>{item.links.map(link => <a href={link.href}>{link.label[lang]} ↗</a>)}</div>
+        </aside>
+      )}
+
+      {related.length > 0 && <><h2>{pick(lang, 'Related outputs', '相关成果')}</h2><ul>{related.map(p => <li><a href={`/${lang}/publications/#${p.id}`}>{p.title}</a></li>)}</ul></>}
+
+      {relatedActivities.length > 0 && (
+        <aside class="activity-related">
+          <span class="eyebrow">{pick(lang, 'MORE FROM BHUTAN', '更多不丹活动')}</span>
+          {relatedActivities.map(a => <a href={`/${lang}/activities/${a.id}/`}>{a.title[lang]} →</a>)}
+        </aside>
+      )}
+    </div>
+  </article>
 </SiteLayout>

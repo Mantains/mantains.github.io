@@ -1,0 +1,166 @@
+.activity-content {
+  min-width: 0;
+}
+
+.activity-content.has-photo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 156px;
+  align-items: center;
+  gap: 28px;
+}
+
+.activity-thumbnail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border: 1px solid var(--line);
+  background: var(--wash);
+}
+
+.activity-thumbnail img {
+  display: block;
+  max-width: 100%;
+  max-height: 142px;
+  width: auto;
+  height: auto;
+}
+
+.activity-photo {
+  margin: 30px 0 34px;
+}
+
+.activity-photo > a {
+  display: block;
+}
+
+.activity-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+}
+
+.activity-photo.portrait > a {
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.activity-photo.portrait img {
+  width: auto;
+  max-width: 100%;
+  max-height: 680px;
+}
+
+.activity-photo figcaption {
+  margin-top: 11px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.activity-photo.portrait figcaption {
+  max-width: 510px;
+  margin-inline: auto;
+}
+
+.activity-story-section {
+  margin-top: 38px;
+}
+
+.activity-story-section > p {
+  margin-bottom: 24px;
+}
+
+.activity-photo-grid.paired {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.activity-photo-grid .activity-photo {
+  margin-block: 6px 16px;
+}
+
+.activity-institutions,
+.activity-related {
+  padding: 22px 0;
+  border-top: 1px solid var(--line);
+  margin-top: 34px;
+}
+
+.activity-institutions > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.activity-related > a {
+  display: block;
+  margin-top: 12px;
+  font-family: var(--serif);
+  font-size: 22px;
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  .activity-content.has-photo {
+    grid-template-columns: minmax(0, 1fr) 100px;
+    align-items: start;
+    gap: 16px;
+  }
+
+  .activity-thumbnail {
+    margin-top: 5px;
+    padding: 3px;
+  }
+
+  .activity-thumbnail img {
+    max-height: 122px;
+  }
+
+  .activity-photo-grid.paired {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .activity-photo {
+    margin-block: 24px 28px;
+  }
+
+  .activity-photo.portrait img {
+    max-height: 570px;
+  }
+
+  .activity-photo figcaption {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 420px) {
+  .activity-content.has-photo {
+    grid-template-columns: 1fr;
+  }
+
+  .activity-thumbnail {
+    max-width: 220px;
+    justify-self: start;
+  }
+
+  .activity-thumbnail img {
+    max-height: 170px;
+  }
+}
+
+@media print {
+  .activity-photo {
+    break-inside: avoid;
+  }
+
+  .activity-photo.portrait img {
+    max-height: 430px;
+  }
+}

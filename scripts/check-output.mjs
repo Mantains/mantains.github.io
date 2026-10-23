@@ -30,6 +30,10 @@ for (const [file, doc] of docs) {
   }
   for (const node of doc.nodes) {
     const a = attrs(node);
+    if (node.tagName === 'img') {
+      if (!Object.hasOwn(a, 'alt')) failures.push(`Missing image alt text: ${doc.pathname}`);
+      if (!(Number(a.width) > 0 && Number(a.height) > 0)) failures.push(`Missing image dimensions: ${a.src} in ${doc.pathname}`);
+    }
     const link = node.tagName === 'a' || node.tagName === 'link' ? a.href : node.tagName === 'img' || node.tagName === 'script' ? a.src : null;
     if (!link || /^(mailto:|tel:|data:)/.test(link)) continue;
     const url = new URL(link, `https://mantains.github.io${doc.pathname}`);

@@ -29,6 +29,13 @@ unique(notes.map(n => `${n.lang}/${n.urlSlug}`), 'note URLs');
 unique(notes.map(n => `${n.lang}/${n.translationKey}`), 'translation keys in the same language');
 const ids = new Set(publications.map(p => p.id));
 for (const a of activities) for (const id of a.publicationIds || []) if (!ids.has(id)) throw new Error(`Unknown publication ${id} in ${a.id}`);
+const activityIds = new Set(activities.map(a => a.id));
+for (const a of activities) {
+  for (const id of a.relatedActivityIds || []) {
+    if (!activityIds.has(id) || id === a.id) throw new Error(`Invalid related activity ${id} in ${a.id}`);
+  }
+  unique((a.sections || []).map(s => s.id), `section IDs in ${a.id}`);
+}
 for (const n of notes) {
   if (n.updatedDate && n.updatedDate < n.pubDate) throw new Error(`Update precedes publication: ${n.file}`);
   if (!n.file.replaceAll('\\', '/').includes(`/blog/${n.lang}/`)) throw new Error(`Note language does not match directory: ${n.file}`);
