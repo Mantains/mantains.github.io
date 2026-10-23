@@ -1,10 +1,10 @@
 ---
-import { text, type Lang } from '../lib/site';
+import { text, activityPeriod, type Lang } from '../lib/site';
 const { item, lang } = Astro.props;
 const t = text[lang as Lang];
 ---
 <article class="activity-row">
-  <div class="activity-meta"><span>{item.date || item.year}</span><span class:list={['badge', { planned: item.status === 'planned' }]}>{t[item.status as 'planned' | 'completed']}</span></div>
+  <div class="activity-meta"><span>{activityPeriod(item, lang)}</span><span class:list={['badge', { planned: item.status === 'planned' }]}>{t[item.status as 'planned' | 'completed']}</span></div>
   <div class:list={['activity-content', { 'has-photo': !!item.cover }]}>
     <div>
       <div class="eyebrow">{t[item.category as 'fieldwork']} · {item.location[lang]}</div>

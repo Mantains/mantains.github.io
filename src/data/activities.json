@@ -230,5 +230,118 @@
       "en": "Planned visits include ETH Zurich and the University of Zurich, followed by BioHackathon Germany in Göttingen (7–11 December). Topics include wheat diversity, adaptation, image-based phenotyping, and wheat spike detection. This activity is planned, not yet completed.",
       "zh": "计划访问苏黎世联邦理工学院与苏黎世大学，随后参加哥廷根的德国 BioHackathon（12 月 7–11 日）。交流主题包括小麦多样性、适应性、图像表型与麦穗检测。本活动尚未完成。"
     }
+  },
+  {
+    "id": "um6p-visit-2025",
+    "year": 2025,
+    "startMonth": "2025-10",
+    "endMonth": "2025-11",
+    "status": "completed",
+    "category": "exchange",
+    "featured": true,
+    "order": 4,
+    "location": {
+      "en": "UM6P · Morocco",
+      "zh": "UM6P · 摩洛哥"
+    },
+    "title": {
+      "en": "Visit to UM6P",
+      "zh": "UM6P 访问"
+    },
+    "summary": {
+      "en": "A visit to UM6P in Morocco, October–November 2025.",
+      "zh": "2025 年 10—11 月，访问摩洛哥 UM6P。"
+    },
+    "body": {
+      "en": "I visited UM6P in Morocco from October to November 2025.",
+      "zh": "2025 年 10 月至 11 月，我访问了摩洛哥 UM6P。"
+    },
+    "cover": {
+      "src": "/images/activities/um6p-visit-2025/visit-group.jpg",
+      "width": 1280,
+      "height": 960,
+      "alt": {
+        "en": "A group photograph in an indoor gathering space during the visit to UM6P.",
+        "zh": "UM6P 访问期间在室内活动空间拍摄的合影。"
+      },
+      "caption": {
+        "en": "Group photograph during the UM6P visit, October–November 2025.",
+        "zh": "UM6P 访问期间合影，2025 年 10—11 月。"
+      }
+    },
+    "sections": [
+      {
+        "id": "visit-photographs",
+        "title": {
+          "en": "Visit photographs",
+          "zh": "访问留影"
+        },
+        "paragraphs": [],
+        "photos": [
+          {
+            "src": "/images/activities/um6p-visit-2025/campus-gate.jpg",
+            "width": 1280,
+            "height": 1706,
+            "alt": {
+              "en": "A photograph beside the UM6P Gate 1 campus sign.",
+              "zh": "UM6P 校园 Gate 1 标识旁的留影。"
+            },
+            "caption": {
+              "en": "A photograph at the UM6P campus entrance.",
+              "zh": "UM6P 校园入口留影。"
+            }
+          },
+          {
+            "src": "/images/activities/um6p-visit-2025/laboratory-group.jpg",
+            "width": 1706,
+            "height": 1280,
+            "alt": {
+              "en": "Four people posing for a photograph in a laboratory during the UM6P visit.",
+              "zh": "UM6P 访问期间的实验室合影。"
+            },
+            "caption": {
+              "en": "Laboratory group photograph during the visit.",
+              "zh": "访问期间的实验室合影。"
+            }
+          }
+        ]
+      },
+      {
+        "id": "moments-from-the-stay",
+        "title": {
+          "en": "Moments from the stay",
+          "zh": "访问期间的生活片段"
+        },
+        "paragraphs": [],
+        "photos": [
+          {
+            "src": "/images/activities/um6p-visit-2025/visit-meal.jpg",
+            "width": 1706,
+            "height": 1280,
+            "alt": {
+              "en": "A group photograph around a dining table during the stay in Morocco.",
+              "zh": "摩洛哥访问期间围坐餐桌的合影。"
+            },
+            "caption": {
+              "en": "A meal together during the visit.",
+              "zh": "访问期间的聚餐留影。"
+            }
+          },
+          {
+            "src": "/images/activities/um6p-visit-2025/visit-evening.jpg",
+            "width": 1706,
+            "height": 1280,
+            "alt": {
+              "en": "A group photograph sharing a meal indoors during the stay in Morocco.",
+              "zh": "摩洛哥访问期间在室内共进晚餐的合影。"
+            },
+            "caption": {
+              "en": "An evening meal during the visit.",
+              "zh": "访问期间的晚餐留影。"
+            }
+          }
+        ]
+      }
+    ]
   }
 ]

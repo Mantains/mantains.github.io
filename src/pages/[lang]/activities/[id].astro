@@ -1,7 +1,7 @@
 ---
 import SiteLayout from '../../../layouts/SiteLayout.astro';
 import ActivityPhoto from '../../../components/ActivityPhoto.astro';
-import { languages, activities, publications, text, pick, type Lang } from '../../../lib/site';
+import { languages, activities, publications, text, pick, activityPeriod, type Lang } from '../../../lib/site';
 export function getStaticPaths() { return languages.flatMap(lang => activities.map(item => ({ params: { lang, id: item.id }, props: { item } }))); }
 const lang = Astro.params.lang as Lang;
 const { item } = Astro.props;
@@ -16,7 +16,7 @@ const relatedActivities = activities.filter(a => (item.relatedActivityIds || [])
       <p class="eyebrow">{t[item.category as 'fieldwork']} · {item.location[lang]}</p>
       <h1>{item.title[lang]}</h1>
       <div class="article-meta">
-        <span>{item.date || item.year}{item.endDate && ` — ${item.endDate}`}</span>
+        <span>{activityPeriod(item, lang)}</span>
         <span class:list={['badge', { planned: item.status === 'planned' }]}>{t[item.status as 'planned' | 'completed']}</span>
       </div>
     </header>
@@ -30,7 +30,7 @@ const relatedActivities = activities.filter(a => (item.relatedActivityIds || [])
           <h2>{section.title[lang]}</h2>
           {section.paragraphs.map(paragraph => <p>{paragraph[lang]}</p>)}
           {section.photos.length > 0 && (
-            <div class:list={['activity-photo-grid', { paired: section.photos.length === 2 }]}>
+            <div class:list={['activity-photo-grid', { paired: section.photos.length === 2 && section.photos.every(photo => photo.width >= photo.height) }]}>
               {section.photos.map(photo => <ActivityPhoto photo={photo} lang={lang} />)}
             </div>
           )}

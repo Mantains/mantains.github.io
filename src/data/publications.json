@@ -18,7 +18,7 @@
     "id": "fresh-tea-leaves-2023", "type": "article", "status": "published", "year": 2023,
     "title": "Topics and trends in fresh tea (Camellia sinensis) leaf research: A comprehensive bibliometric study.",
     "authors": "Chen, Y.*, Li, Y.*, Shen, C., & Xiao, L.", "venue": "Frontiers in Plant Science", "volume": "14", "pages": "1092511", "doi": "10.3389/fpls.2023.1092511", "equalContribution": true,
-    "featured": true, "order": 3,
+    "featured": false, "order": 3,
     "summary": { "en": "Research topics and emerging trends across fresh tea leaf studies.", "zh": "系统梳理茶鲜叶研究的主要主题与发展趋势。" }
   },
   { "id": "rock-tea-fungi-2024", "type": "article", "status": "published", "year": 2024, "title": "Effects of different raw materials and processes on the fungal community of Rock tea.", "authors": "Qin, L., Li, Y., Tian, S., Zhang, C., & Shen, C.", "venue": "Journal of Food Safety and Quality", "volume": "15", "pages": "288–297", "doi": "10.19812/j.cnki.jfsq11-5956/ts.20240331001" },

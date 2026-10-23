@@ -40,6 +40,8 @@ export const publicationSchema = z.object({
 export const activitySchema = z.object({
   id: z.string().regex(/^[a-z0-9-]+$/), year: z.number().int(),
   date: date.optional(), endDate: date.optional(),
+  startMonth: z.string().regex(/^\d{4}-(0[1-9]|1[0-2])$/).optional(),
+  endMonth: z.string().regex(/^\d{4}-(0[1-9]|1[0-2])$/).optional(),
   status: z.enum(['planned', 'completed']),
   category: z.enum(['fieldwork', 'training', 'exchange', 'seminar']),
   featured: z.boolean().optional(), order: z.number().optional(),

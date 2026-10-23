@@ -49,6 +49,15 @@ export const text = {
 export const categories = ['bioinformatics', 'computing', 'breeding-statistics'] as const;
 export const noteHref = (note: { data: { lang: string; urlSlug: string } }) => `/${note.data.lang}/blog/${note.data.urlSlug}/`;
 export const formatDate = (value: string, lang: Lang) => new Intl.DateTimeFormat(lang === 'zh' ? 'zh-CN' : 'en-GB', { year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC' }).format(new Date(value));
+export function activityPeriod(item: { year: number; date?: string; endDate?: string; startMonth?: string; endMonth?: string }, lang: Lang) {
+  if (item.date) return item.date + (item.endDate ? ` — ${item.endDate}` : '');
+  if (item.startMonth) {
+    const formatter = new Intl.DateTimeFormat(lang === 'zh' ? 'zh-CN' : 'en-GB', { year: 'numeric', month: 'short', timeZone: 'UTC' });
+    const start = new Date(`${item.startMonth}-01T00:00:00Z`);
+    return item.endMonth ? formatter.formatRange(start, new Date(`${item.endMonth}-01T00:00:00Z`)) : formatter.format(start);
+  }
+  return String(item.year);
+}
 export async function publicNotes(lang?: Lang) {
   const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Tokyo', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
   return (await getCollection('blog')).filter(n => !n.data.draft && n.data.pubDate <= today && (!lang || n.data.lang === lang)).sort((a, b) => b.data.pubDate.localeCompare(a.data.pubDate));
