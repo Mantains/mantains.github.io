@@ -1,6 +1,9 @@
 ---
 import '../styles/global.css';
 import '../styles/activities.css';
+import '../styles/palettes.css';
+import PalettePicker from '../components/PalettePicker.astro';
+import { palettes, paletteCss, defaultPalette, paletteStorageKey } from '../lib/palettes.mjs';
 import { profile, text, otherLang, pick, type Lang } from '../lib/site';
 interface Props { lang: Lang; title?: string; description?: string; alternatePath?: string; translationAvailable?: boolean; }
 const { lang, title, description = profile[lang].intro, alternatePath, translationAvailable = true } = Astro.props;
@@ -17,6 +20,16 @@ const nav = [['home', ''], ['publications', 'publications/'], ['blog', 'blog/'],
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#f7f7f0" />
+    <style is:inline set:html={paletteCss} />
+    <script is:inline define:vars={{ paletteConfig: palettes.map(p => ({ id: p.id, paper: p.colors.paper })), defaultPalette, paletteStorageKey }}>
+      (() => {
+        let id = defaultPalette;
+        try { id = localStorage.getItem(paletteStorageKey) || id; } catch {}
+        const palette = paletteConfig.find(p => p.id === id) || paletteConfig.find(p => p.id === defaultPalette);
+        document.documentElement.dataset.palette = palette.id;
+        document.querySelector('meta[name="theme-color"]')?.setAttribute('content', palette.paper);
+      })();
+    </script>
     <meta name="description" content={description} />
     <title>{pageTitle}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -38,7 +51,10 @@ const nav = [['home', ''], ['publications', 'publications/'], ['blog', 'blog/'],
       <nav aria-label={pick(lang, 'Main navigation', '主导航')}>
         {nav.map(([key, path]) => <a href={`/${lang}/${path}`} aria-current={Astro.url.pathname === `/${lang}/${path}` || (path && Astro.url.pathname.startsWith(`/${lang}/${path}`)) ? 'page' : undefined}>{t[key]}</a>)}
       </nav>
-      <a class="language-switch" href={alternate} lang={other === 'zh' ? 'zh-CN' : 'en'} title={translationAvailable ? pick(lang, '切换到中文', 'Switch to English') : pick(lang, 'Chinese notes index; this note has no translation', '英文笔记目录；本文暂无英文译文')}>{other === 'zh' ? '中文' : 'EN'} <span aria-hidden="true">↗</span></a>
+      <div class="header-tools">
+        <PalettePicker lang={lang} />
+        <a class="language-switch" href={alternate} lang={other === 'zh' ? 'zh-CN' : 'en'} title={translationAvailable ? pick(lang, '切换到中文', 'Switch to English') : pick(lang, 'Chinese notes index; this note has no translation', '英文笔记目录；本文暂无英文译文')}>{other === 'zh' ? '中文' : 'EN'} <span aria-hidden="true">↗</span></a>
+      </div>
     </header>
     <main id="main" class="shell"><slot /></main>
     <footer class="site-footer shell">

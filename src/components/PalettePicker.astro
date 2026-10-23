@@ -1,0 +1,35 @@
+---
+import { palettes, defaultPalette } from '../lib/palettes.mjs';
+import { pick, type Lang } from '../lib/site';
+const { lang } = Astro.props as { lang: Lang };
+---
+
+<details class="palette-picker" data-palette-picker hidden>
+  <summary aria-label={pick(lang, 'Choose a reading palette', '选择阅读配色')} title={pick(lang, 'Choose a reading palette', '选择阅读配色')}>
+    <svg width="17" height="17" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <path d="M10 2a8 8 0 1 0 0 16h1.1a2 2 0 0 0 1.4-3.4.9.9 0 0 1 .6-1.6H15a3 3 0 0 0 3-3 8 8 0 0 0-8-8Z" stroke="currentColor" stroke-width="1.2" />
+      <circle cx="6" cy="8" r="1" fill="currentColor" /><circle cx="10" cy="5.5" r="1" fill="currentColor" /><circle cx="14" cy="8" r="1" fill="currentColor" /><circle cx="6" cy="12" r="1" fill="currentColor" />
+    </svg>
+    <span>{pick(lang, 'Palette', '配色')}</span>
+    <span class="palette-current-dot" aria-hidden="true"></span>
+  </summary>
+  <div class="palette-panel">
+    <fieldset>
+      <legend>{pick(lang, 'Reading palette', '阅读配色')}</legend>
+      {palettes.map(palette => (
+        <label class="palette-option">
+          <input type="radio" name="reading-palette" value={palette.id} checked={palette.id === defaultPalette} />
+          <span class="palette-swatches" aria-hidden="true" style={`--sample-paper:${palette.colors.paper};--sample-tint:${palette.colors.tint};--sample-ink:${palette.colors.ink}`}>
+            <i></i><i></i><i></i>
+          </span>
+          <span>{palette.name[lang]}</span>
+        </label>
+      ))}
+    </fieldset>
+  </div>
+</details>
+
+<script>
+  import { initPalettePicker } from '../scripts/palette.mjs';
+  initPalettePicker();
+</script>
